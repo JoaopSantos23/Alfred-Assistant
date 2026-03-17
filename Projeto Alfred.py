@@ -90,6 +90,16 @@ def executar_tarefa(comando):
                 
         falar(f"{saudar} são exatamente... {hora_formatada}. O tempo esta passando rapido de mais")
 
+    elif "calcular juros" in comando:
+        falar("Opa! vamos nessa. Diga o capital, a taxa e o tempo.")
+      
+        capital = 500
+        taxa = 0.02
+        tempo = 12  
+        
+        juros = capital * taxa * tempo
+        falar(f"Joao, os juros simples dessa operação serão de {juros} reais.")
+
 while True:
     comando = ouvir ().lower()
     
