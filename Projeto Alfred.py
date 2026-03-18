@@ -63,7 +63,7 @@ def ouvir():
             os.remove("comando.wav")
 
 def saudar():
-    falar(f"Boa boa, {usuario}. Sistemas em {bateria}%.")
+    falar(f"Boa boa, {usuario}.")
     
 saudar()
 def executar_tarefa(comando):
@@ -89,16 +89,11 @@ def executar_tarefa(comando):
             saudar = "Boa noite"
                 
         falar(f"{saudar} são exatamente... {hora_formatada}. O tempo esta passando rapido de mais")
+def calcular_juros(comando):
+    calcular_juros()
 
-    elif "calcular juros" in comando:
-        falar("Opa! vamos nessa. Diga o capital, a taxa e o tempo.")
-      
-        capital = 500
-        taxa = 0.02
-        tempo = 12  
-        
-        juros = capital * taxa * tempo
-        falar(f"Joao, os juros simples dessa operação serão de {juros} reais.")
+def calcular_porcentagem(comando):
+    calcular_porcentagem()
 
 while True:
     comando = ouvir ().lower()
@@ -122,6 +117,32 @@ while True:
         falar("Descansar né, que o cara né de ferro. Vou marcar uns 20 minutos. Começando agora")
         time.sleep(20 * 60)
         falar("Opa, deu tempo já. ")
+    elif "calcular juros" in comando:
+        falar("Opa! vamos nessa. Diga o capital, a taxa e o tempo.")
+      
+        capital = float(input("Capital(R$): "))
+        taxa = float(input("Taxa mensal(%): ")) / 100
+        tempo = float(input("Tempo (meses): "))
+        
+        juros = capital * taxa * tempo
+        m = capital + juros
+        print(f"juros: R$ {juros:.2f}")
+        print(f"montante total: R$ {m:.2f}")
+
+        falar(f"Joao, os juros simples dessa operação serão de {juros} reais.")
+    elif"porcentagem" in comando:
+        falar("Claro, vamos nessa.Diga quais os valores")  
+
+        valor = float(input("Valor original (R$): "))  
+        pocentagem = float(input("Qual a pocentagem do aumento (%): "))
+
+        aumento = valor * (pocentagem / 100)
+        final  = valor + aumento
+
+        print(f"Teve um aumento de : R$ {aumento:.2f}")
+        print(f"O valor final vai ser de: R$ {final:.2f}")
+
+        falar(f"Houve um aumento de {aumento}, e o valor final é de {final} reais ") 
     elif "sair" in comando:    
         falar("Desligando sistemas...Até logo.")
         break
