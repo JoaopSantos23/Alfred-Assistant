@@ -143,6 +143,32 @@ while True:
         print(f"O valor final vai ser de: R$ {final:.2f}")
 
         falar(f"Houve um aumento de {aumento}, e o valor final é de {final} reais ") 
+    elif "comparar" in comando:
+        falar("Digite um valor")
+        n1 = float(input("Primeiro valor: "))
+        falar("Digite outro valor")
+        n2 = float(input("Segundo valor: "))
+
+        if n1 > n2:
+            resultado = f"{n1} é maior que {n2}"
+        elif n1 < n2:
+            resultado = f"{n1} é menor que {n2}"
+        else:
+            resultado = "Esses numeros são iguais"
+
+        print(resultado)
+        falar(resultado)  
+    elif "par" in comando or "impar" in comando:
+        numero = int(input("Digite um nummero: "))
+        if numero % 2 ==0:
+            res = "par"
+            print(f"O numero {numero} é par!")
+        else:
+            res = "impar"
+            print(f"O numero {numero} é impar!")
+
+        falar(f"O número {numero} é {res}")
+      
     elif "sair" in comando:    
         falar("Desligando sistemas...Até logo.")
         break
